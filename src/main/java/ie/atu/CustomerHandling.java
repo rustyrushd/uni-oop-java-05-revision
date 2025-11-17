@@ -36,6 +36,43 @@ public class CustomerHandling
         customerList.add(customer1);
     }
 
+    public void updateCustomer() {
+        Scanner scan3 = new Scanner(System.in);
+        Customer updatedCustomer = null;
+        System.out.println("\nPlease enter customer ID: \n");
+        String searchID = scan3.nextLine().trim();
+
+        // check id and store object with that id
+        for (Customer customer : customerList) {
+            if (customer.getCustomerID().equals(searchID)) {
+                System.out.println("Found customer ID: " + searchID);
+                updatedCustomer = customer;
+            }
+        }
+
+        // allow updates to found object
+        if (updatedCustomer != null) {
+            System.out.println("\nPlease enter new customer ID:");
+            String newID = scan3.nextLine().trim();
+            updatedCustomer.setCustomerID(newID);
+
+            System.out.println("Please enter new customer name:");
+            String newName = scan3.nextLine().trim();
+            updatedCustomer.setCustomerName(newName);
+
+            System.out.println("Please enter new customer email:");
+            String newEmail = scan3.nextLine().trim();
+            updatedCustomer.setCustomerEmail(newEmail);
+
+            System.out.println("Please enter new customer phone number:");
+            String newPhone = scan3.nextLine().trim();
+            updatedCustomer.setCustomerPhone(newPhone);
+        }
+        else {
+            System.out.println("Customer ID doesn't exist\n ");
+        }
+    }
+
     public void displayCustomers() {
         for (Customer customer : customerList) {
             System.out.println(customer);

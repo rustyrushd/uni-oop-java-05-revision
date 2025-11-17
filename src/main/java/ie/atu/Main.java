@@ -25,6 +25,7 @@ public class Main
                     break;
                 case 2:
                     System.out.println("\nYou selected to update an existing customer\n");
+                    customerHandling.updateCustomer();
                     break;
                 case 3:
                     System.out.println("\nDisplaying all customers:\n");
