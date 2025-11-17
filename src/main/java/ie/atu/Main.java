@@ -19,6 +19,14 @@ public class Main
             System.out.println("Please enter customer ID: ");
             String cusID = scan1.nextLine().trim();
 
+            for (int j = 0; j < customerList.size(); j++) {
+                while (customerList.get(j).getCustomerID().equals(cusID)) {
+                    System.out.println("Customer ID already exists, please enter a new one: ");
+                    cusID = scan1.nextLine().trim();
+                    j = 0;
+                }
+            }
+
             System.out.println("Please enter customer name: ");
             String cusName = scan1.nextLine().trim();
 
