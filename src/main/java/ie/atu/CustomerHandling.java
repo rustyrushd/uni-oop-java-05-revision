@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class CustomerHandling {
+public class CustomerHandling
+{
     List<Customer> customerList = new ArrayList<>();
 
     public void addCustomer() {
@@ -33,5 +34,12 @@ public class CustomerHandling {
 
         Customer customer1 = new Customer(cusID, cusName, cusEmail, cusPhone);
         customerList.add(customer1);
+    }
+
+    public void displayCustomers() {
+        for (Customer customer : customerList) {
+            System.out.println(customer);
+        }
+        System.out.println();
     }
 }

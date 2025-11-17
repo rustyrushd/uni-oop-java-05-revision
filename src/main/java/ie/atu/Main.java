@@ -28,6 +28,7 @@ public class Main
                     break;
                 case 3:
                     System.out.println("\nDisplaying all customers:\n");
+                    customerHandling.displayCustomers();
                     break;
                 case 4:
                     System.out.println("\nExiting");
@@ -35,9 +36,5 @@ public class Main
                     break;
             }
         }
-
-//        for (Customer customer : customerList) {
-//            System.out.println(customer);
-//        }
     }
 }
