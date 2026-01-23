@@ -1,45 +1,45 @@
 package ie.uni.revision;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
   public static void main(String[] args) {
-    List<Customer> customerList = new ArrayList<>();
-
     Scanner scan1 = new Scanner(System.in);
-    System.out.println("Please enter number of entries: ");
-    int count = scan1.nextInt();
-    scan1.nextLine();
+    CustomerHandling customerHandling = new CustomerHandling();
 
-    for (int i = 0; i < count; i++) {
-      System.out.println("Please enter customer ID: ");
-      String cusID = scan1.nextLine().trim();
+    boolean running = true;
+    while (running) {
+      System.out.println("""
+          To select an option, please enter one of following numbers:\
+          
+          "1" to add a new customer\
+          
+          "2" to update an existing customer\
+          
+          "3" to display all customers\
+          
+          "4" to exit""");
+      int choice = scan1.nextInt();
 
-      for (int j = 0; j < customerList.size(); j++) {
-        while (customerList.get(j).getCustomerID().equals(cusID)) {
-          System.out.println("Customer ID already exists, please enter a new one: ");
-          cusID = scan1.nextLine().trim();
-          j = 0;
-        }
+      switch (choice) {
+        case 1:
+          System.out.println("\nYou selected to add a new customer");
+          customerHandling.addCustomer(scan1);
+          break;
+        case 2:
+          System.out.println("\nYou selected to update an existing customer");
+          customerHandling.updateCustomer(scan1);
+          break;
+        case 3:
+          System.out.println("\nDisplaying all customers:");
+          customerHandling.displayCustomers();
+          break;
+        case 4:
+          System.out.println("\nExiting");
+          running = false;
+          break;
       }
-
-      System.out.println("Please enter customer name: ");
-      String cusName = scan1.nextLine().trim();
-
-      System.out.println("Please enter customer email: ");
-      String cusEmail = scan1.nextLine().trim();
-
-      System.out.println("Please enter customer phone number: ");
-      String cusPhone = scan1.nextLine().trim();
-
-      Customer customer1 = new Customer(cusID, cusName, cusEmail, cusPhone);
-      customerList.add(customer1);
     }
-
-    for (Customer customer : customerList) {
-      System.out.println(customer);
-    }
+    scan1.close();
   }
 }
